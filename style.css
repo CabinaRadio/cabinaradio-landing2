@@ -1,0 +1,31 @@
+/* RESET GLOBAL */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+/* BODY */
+html, body{
+  height:100%;
+  overflow:hidden;
+  background:black;
+}
+
+/* HERO CONTENEDOR */
+.hero{
+  position:fixed;
+  inset:0;
+  overflow:hidden;
+}
+
+/* VIDEO FULLSCREEN */
+.hero video{
+  position:absolute;
+  top:50%;
+  left:50%;
+  width:100vw;
+  height:100vh;
+  object-fit:cover;
+  transform:translate(-50%,-50%);
+}

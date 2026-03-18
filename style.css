@@ -1,39 +1,42 @@
-/* RESET GLOBAL */
+/* RESET TOTAL */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  /* Evita el resaltado azul al tocar en móviles */
+  -webkit-tap-highlight-color: transparent; 
 }
 
-/* BODY Y HTML: Bloqueo de movimiento */
 html, body {
   width: 100%;
   height: 100%;
-  background: black;
-  /* Evita que aparezcan barras de scroll al hacer zoom o redimensionar */
-  overflow: hidden; 
-  /* Fija la posición para evitar el "rebote" de scroll en móviles */
+  background-color: #000;
+  /* Bloquea el desplazamiento elástico en móviles */
+  overflow: hidden;
   position: fixed; 
 }
 
-/* CONTENEDOR HERO */
 .hero {
-  position: relative;
+  /* Al usar fixed, el contenedor se pega a los bordes de la ventana física */
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100vw;
   height: 100vh;
   overflow: hidden;
+  background: black;
 }
 
-/* VIDEO FULLSCREEN INTELIGENTE */
 .hero video {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 100vw; 
-  height: 100vh;
-  /* object-fit: cover hace que el video llene el espacio sin estirarse */
-  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  /* Cubre toda la pantalla manteniendo proporción */
+  object-fit: cover; 
   transform: translate(-50%, -50%);
-  /* Evita que el usuario pueda arrastrar el video accidentalmente */
-  pointer-events: none; 
+  /* Asegura que no se pueda arrastrar el archivo de video */
+  user-select: none;
+  pointer-events: none;
 }

@@ -1,32 +1,39 @@
 /* RESET GLOBAL */
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* BODY */
-html, body{
-  height:100%;
-  overflow:hidden;
-  background:black;
+/* BODY Y HTML: Bloqueo de movimiento */
+html, body {
+  width: 100%;
+  height: 100%;
+  background: black;
+  /* Evita que aparezcan barras de scroll al hacer zoom o redimensionar */
+  overflow: hidden; 
+  /* Fija la posición para evitar el "rebote" de scroll en móviles */
+  position: fixed; 
 }
 
-/* HERO CONTENEDOR */
-.hero{
-  position:fixed;
-  inset:0;
-  overflow:hidden;
+/* CONTENEDOR HERO */
+.hero {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
 }
 
-/* VIDEO FULLSCREEN */
+/* VIDEO FULLSCREEN INTELIGENTE */
 .hero video {
   position: absolute;
   top: 50%;
   left: 50%;
-  /* Usar unidades de viewport asegura que ocupe el área visible */
   width: 100vw; 
   height: 100vh;
+  /* object-fit: cover hace que el video llene el espacio sin estirarse */
   object-fit: cover;
   transform: translate(-50%, -50%);
+  /* Evita que el usuario pueda arrastrar el video accidentalmente */
+  pointer-events: none; 
 }
